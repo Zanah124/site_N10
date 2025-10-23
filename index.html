@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N10 Humanitaire - Association pour jeunes talents footballeurs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: rgb(0, 102, 255);
+            --primary-dark: blue;
+            --secondary-color: rgb(32, 5, 131);
+            --background-color: rgb(79, 121, 206);
+            --surface-color: rgb(156, 223, 243);
+            --text-primary: rgb(24, 23, 23);
+            --text-secondary: rgb(59, 131, 190);
+            --border-color: rgb(216, 226, 230);
+            --accent-light: cornsilk;
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(135deg, var(--background-color) 0%, var(--primary-color) 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        header {
+            background: linear-gradient(90deg, var(--surface-color) 0%, rgba(156, 223, 243, 0.95) 100%);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .Don_btn {
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .Don_btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
+        }
+
+        /* Hero Section with real background image */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('assets/Font.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--success-color);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Staff Structure */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .staff-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .staff-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .staff-category.professional .staff-icon { color: var(--success-color); }
+        .staff-category.regular .staff-icon { color: var(--primary-color); }
+        .staff-category.volunteer .staff-icon { color: var(--warning-color); }
+        .staff-category.youth .staff-icon { color: var(--secondary-color); }
+
+        /* Members Section - Improved with images */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid var(--primary-color);
+            transition: border-color 0.3s ease;
+        }
+
+        .member-card:hover .member-photo {
+            border-color: var(--secondary-color);
+        }
+
+        .member-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .member-description {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Gallery with real images */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            height: 250px;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .gallery-desc {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 2rem 1rem 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-desc {
+            transform: translateY(0);
+        }
+
+        /* Historical section with images */
+        .historical-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-image {
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .timeline-content {
+            flex-grow: 1;
+        }
+
+        .timeline-year {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 102, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-dark));
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-family: var(--font-heading);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .mission-vision,
+            .services-grid,
+            .staff-grid,
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                text-align: center;
+            }
+            
+            .timeline-item:nth-child(even) {
+                flex-direction: column !important;
+            }
+            
+            main {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 2rem; }
+        .mt-3 { margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="assets/Logio.jpg" alt="N10 Humanitaire" class="logo">
+                <span class="logo-text">N10 Humanitaire</span>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#accueil" class="nav-link">Accueil</a></li>
+                    <li><a href="#mission" class="nav-link">Mission</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#membres" class="nav-link">Membres</a></li>
+                    <li><a href="#historique" class="nav-link">Historique</a></li>
+                    <li><a href="#actualites" class="nav-link">Actualités</a></li>
+                    <li><a href="#don" class="nav-link">Don</a></li>
+                    <li> <a href="tel:+262639283445">
+                         <button class="Don_btn" onclick="scrollToContact()"><i class="fas fa-heart"></i> Faire un Don</button>
+                    </a>
+                       
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1>N10 Humanitaire</h1>
+            <p>Révéler et accompagner les jeunes talents du football vers leurs rêves</p>
+        </div>
+    </section>
+
+    <main>
+        <section id="about" class="section">
+            <div class="card">
+                <p style="font-size: 1.1rem; text-align: center; line-height: 1.8;">
+                    Dans les pays en développement, de nombreux jeunes talents footballistiques restent dans l'ombre. 
+                    Leur situation économique difficile devient le principal obstacle qui les empêche d'atteindre leurs 
+                    objectifs et de réaliser leurs rêves. C'est là qu'intervient N10 Humanitaire comme une aide et un 
+                    soutien précieux pour ces jeunes talents du football.
+                </p>
+            </div>
+        </section>
+
+        <section id="mission" class="section">
+            <h2 class="section-title">Notre Mission & Vision</h2>
+            <div class="mission-vision">
+                <div class="card">
+                    <h3><i class="fas fa-target" style="color: var(--primary-color);"></i> Notre Mission</h3>
+                    <p>Accompagner et soutenir les jeunes garçons de moins de 12 ans, talentueux et passionnés de football, 
+                    en prenant en charge leur santé, leur éducation, leur développement social et leurs équipements sportifs.
+                    Apprennant aux jeunes aussi, l'importance de l'environnement. Pour avoir une belle futur avec l'accompagnement 
+                    d'une nature autour.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-eye" style="color: var(--secondary-color);"></i> Notre Vision</h3>
+                    <p>Créer un avenir où chaque jeune talent, indépendamment de sa situation économique, 
+                    peut poursuivre ses rêves footballistiques et devenir un ambassadeur positif dans sa communauté.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <h2 class="section-title">Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-medkit"></i></div>
+                    <h3>Santé</h3>
+                    <p>Suivi médical régulier, vaccinations, soins dentaires et nutritionnels pour assurer une croissance optimale.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Éducation</h3>
+                    <p>Soutien scolaire, fournitures, frais de scolarité et programmes d'accompagnement éducatif personnalisé.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-users"></i></div>
+                    <h3>Vie Sociale</h3>
+                    <p>Activités communautaires, développement des compétences sociales et programmes de mentorat.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-futbol"></i></div>
+                    <h3>Équipement Football</h3>
+                    <p>Matériel complet : chaussures, maillots, équipements d'entraînement et accès aux terrains.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="membres" class="section">
+            <h2 class="section-title">Membres du Bureau</h2>
+            <div class="members-grid">
+                <div class="member-card">
+                    <img src="assets/président.jpg" alt="Président" class="member-photo">
+                    <div class="member-name">M. HAMADA NOUSSOURA Adifane</div>
+                    <div class="member-role">Président Fondateur</div>
+                    <div class="member-description">
+                        Joueur de football national de Mayotte, initiateur de l'association avec une grande passion pour l'aide aux jeunes talents.
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="assets/vice.jpg" alt="Vice-président" class="member-photo">
+                    <div class="member-name">RASOAMANANA Victor Emeraldo</div>
+                    <div class="member-role">Vice-Président</div>
+                    <div class="member-description">
+                        Responsable de l'administration et du soutien aux activités du président dans la gestion de l'association.
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="assets/admini.jpg" alt="Secrétaire" class="member-photo">
+                    <div class="member-name">RANDRIANASOAVINA Julio David</div>
+                    <div class="member-role">Administration</div>
+                    <div class="member-description">
+                        Gestion des documents officiels et coordination des activités administratives.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="equipe" class="section">
+            <h2 class="section-title">Structure de l'Équipe</h2>
+            <div class="staff-grid">
+                <div class="staff-category professional">
+                    <div class="staff-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Staff Professionnel</h3>
+                    <p>Entraîneurs diplômés, médecins, éducateurs et gestionnaires expérimentés.</p>
+                </div>
+                <div class="staff-category regular">
+                    <div class="staff-icon"><i class="fas fa-users"></i></div>
+                    <h3>Membres Réguliers</h3>
+                    <p>Passionnés de football et membres actifs de la communauté locale.</p>
+                </div>
+                <div class="staff-category volunteer">
+                    <div class="staff-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Bénévoles</h3>
+                    <p>Volontaires dévoués qui donnent de leur temps pour soutenir nos activités.</p>
+                </div>
+                <div class="staff-category youth">
+                    <div class="staff-icon"><i class="fas fa-child"></i></div>
+                    <h3>Équipe Jeunesse</h3>
+                    <p>Jeunes ambassadeurs qui inspirent et motivent les nouveaux talents.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="historique" class="section">
+            <h2 class="section-title">Notre Histoire</h2>
+            <div class="card">
+                <p style="margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.8;">
+                  Au départ, N10 Humanitaire n'était pas encore une association, mais l'initiative d'une personne au grand cœur qui avait pour vocation d'aider les plus démunis. M. HAMADA NOUSSOURA Adifane, joueur de football national de Mayotte, était connu pour son habitude d'apporter son aide aux gens dans des situations critiques.
+                  Après cela, il lance une nouvelle initiative pour créer une association. C'est ce qui a conduit à la création de l'équipe au sein de l'association en 2018.
+                  À présent, l'association s’étend de Mayotte jusqu'à Madagascar. À Mahajanga, les jeunes ont un logement qui leur permet de rester et de suivre leur évolution en matière d'éducation, de santé, et de s'adapter dans un monde social avec les autres.
+
+                </p>
+                
+                <div class="historical-timeline">
+                    <div class="timeline-item">
+                        <img src="assets/staff.jpg" alt="Aujourd'hui" class="timeline-image">
+                        <div class="timeline-content">
+                            <div class="timeline-year">Aujourd'hui</div>
+                            <h4>Impact et Expansion</h4>
+                            <p>Une équipe diversifiée au service de 30 jeunes talents, avec des programmes structurés 
+                            couvrant la santé, l'éducation, le développement social et l'équipement sportif.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="objectifs" class="section">
+            <h2 class="section-title">Nos Objectifs</h2>
+            <div class="card">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <i class="fas fa-star" style="font-size: 2.5rem; color: var(--success-color); margin-bottom: 1rem;"></i>
+                        <h4>Accompagner vers l'Excellence</h4>
+                        <p>Aider les jeunes à atteindre leur plein potentiel footballistique et réaliser leurs rêves.</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <i class="fas fa-heart" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                        <h4>Développement Humain</h4>
+                        <p>Former des citoyens responsables et des modèles pour leur communauté.</p>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem;">
+                        <i class="fas fa-globe" style="font-size: 2.5rem; color: var(--secondary-color); margin-bottom: 1rem;"></i>
+                        <h4>Impact Social</h4>
+                        <p>Créer un changement positif durable dans la société.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="actualites" class="section">
+            <h2 class="section-title">Nos Actualités</h2>
+            <div class="card">
+                <h3 style="text-align: center; margin-bottom: 2rem;">Activités</h3>
+                <p style="text-align: center; margin-bottom: 2rem;">
+                    Fournir les éléments complémentaires pour les jeunes talents et les accompagner dans leur développement.
+                </p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="assets/parta.jpg" alt="Séances d'entraînement" class="gallery-img" style="object-fit: cover;">
+                        <div class="gallery-desc">
+                            <h4>Séances d'Entraînement</h4>
+                            <p>Formation technique et physique de nos jeunes talents avec des entraîneurs qualifiés.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/tournoi.jpg" alt="Compétitions" class="gallery-img" style="object-fit: cover;">
+                        <div class="gallery-desc">
+                            <h4>Compétitions Locales</h4>
+                            <p>Participation aux tournois régionaux pour développer l'esprit de compétition.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="assets/education.jpg" alt="Soutien scolaire" class="gallery-img" style="object-fit: cover;">
+                        <div class="gallery-desc">
+                            <h4>Soutien Scolaire</h4>
+                            <p>Accompagnement éducatif de nos protégés pour assurer leur réussite académique.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Don" class="section">
+          <h2 class="section-title">Don </h2>
+            <!-- Donation Section -->
+            <div class="card mt-3">
+                <h3 style="text-align: center; color: var(--secondary-color); margin-bottom: 2rem;">
+                    <i class="fas fa-heart" style="color: var(--primary-color);"></i> Faire un Don
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                    <div style="padding: 1.5rem; background: rgba(0, 102, 255, 0.1); border-radius: 10px;">
+                        <p>Équipement de base pour un enfant</p>
+                       
+                    </div>
+                    <div style="padding: 1.5rem; background: rgba(32, 5, 131, 0.1); border-radius: 10px;">
+                        <p>Frais de scolarité mensuel</p>
+                       
+                    </div>
+                    <div style="padding: 1.5rem; background: rgba(40, 167, 69, 0.1); border-radius: 10px;">
+                        <p>Suivi médical complet</p>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="section">
+            <h2 class="section-title">Nos Partenaires</h2>
+            <div class="card">
+                <p style="text-align: center; margin-bottom: 2rem;">
+                    Nous travaillons avec différents partenaires pour maximiser notre impact
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+                    <div>
+                        <div style="width: 100px; height: 100px; background: linear-gradient(45deg, var(--primary-color), var(--secondary-color)); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h4>Écoles Locales</h4>
+                        <p>Partenariat éducatif</p>
+                    </div>
+                    <div>
+                        <div style="width: 100px; height: 100px; background: linear-gradient(45deg, var(--success-color), var(--primary-color)); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <h4>Centres de Santé</h4>
+                        <p>Suivi médical</p>
+                    </div>
+                    <div>
+                        <div style="width: 100px; height: 100px; background: linear-gradient(45deg, var(--warning-color), var(--success-color)); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h4>Commerces</h4>
+                        <p>Soutien matériel</p>
+                    </div>
+                    <div>
+                        <div style="width: 100px; height: 100px; background: linear-gradient(45deg, var(--secondary-color), var(--warning-color)); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <h4>Clubs de Football</h4>
+                        <p>Formation sportive</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-map-marker-alt"></i> Contact</h3>
+                <p><strong>Lieu :</strong><br>Mayotte, ville <br>
+               Madagascar, Mahajunga </p>
+                <p><strong>Email :</strong><br>n10.humanitaire976@gmail.com</p>
+                <p><strong>Contact :</strong><br>+262639283445</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-clock"></i> Horaires</h3>
+                <p><strong>Bureau :</strong></p>
+                <p>Lundi - Vendredi : 8h00 - 17h00</p>
+                <p>Samedi : 8h00 - 12h00</p>
+                <p><strong>Entraînements :</strong></p>
+                <p>Mercredi & Samedi : 14h00 - 17h00</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-handshake"></i> Rejoignez-nous</h3>
+                <p>Devenez bénévole</p>
+                <p>Faites un don</p>
+                <p>Partenariat</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-info-circle"></i> À propos</h3>
+                <p>Association à but non lucratif</p>
+                <p>Créée en 2018</p>
+                <p>30 jeunes accompagnés</p>
+                <p>4 équipes de staff</p>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 N10 Humanitaire. Tous droits réservés. | Développé avec passion pour les jeunes talents</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll to contact function for donation button
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Nous vous contacterons bientôt.');
+        });
+
+        // Donation button handling
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Donner')) {
+                button.addEventListener('click', function() {
+                    const amount = this.textContent.match(/\d+/);
+                    if (amount) {
+                        alert(`Merci pour votre intention de don de ${amount[0]}€ ! Vous serez redirigé vers notre plateforme de paiement sécurisée.`);
+                    }
+                });
+            }
+        });
+
+        // Custom donation handling
+        const customDonationBtn = document.querySelector('button:contains("Don personnalisé")');
+        if (customDonationBtn) {
+            customDonationBtn.addEventListener('click', function() {
+                const customAmount = this.previousElementSibling.value;
+                if (customAmount && customAmount > 0) {
+                    alert(`Merci pour votre intention de don de ${customAmount}€ ! Vous serez redirigé vers notre plateforme de paiement sécurisée.`);
+                } else {
+                    alert('Veuillez saisir un montant valide.');
+                }
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .service-card, .staff-category, .member-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile menu toggle (if needed)
+        const createMobileMenu = () => {
+            if (window.innerWidth <= 768) {
+                const navContainer = document.querySelector('.nav-container');
+                const navMenu = document.querySelector('.nav-menu');
+                
+                if (!document.querySelector('.hamburger')) {
+                    const hamburger = document.createElement('button');
+                    hamburger.className = 'hamburger';
+                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    hamburger.style.cssText = `
+                        background: none;
+                        border: none;
+                        font-size: 1.5rem;
+                        color: var(--text-primary);
+                        cursor: pointer;
+                        display: block;
+                    `;
+                    
+                    hamburger.addEventListener('click', () => {
+                        navMenu.classList.toggle('active');
+                    });
+                    
+                    navContainer.appendChild(hamburger);
+                    
+                    // Style mobile menu
+                    navMenu.style.cssText = `
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background: white;
+                        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+                        flex-direction: column;
+                        padding: 1rem;
+                        transform: translateY(-100%);
+                        opacity: 0;
+                        transition: all 0.3s ease;
+                        pointer-events: none;
+                    `;
+                }
+            }
+        };
+
+        window.addEventListener('resize', createMobileMenu);
+        createMobileMenu();
+    </script>
+
+    <style>
+        /* Additional mobile styles */
+        .nav-menu.active {
+            transform: translateY(0) !important;
+            opacity: 1 !important;
+            pointer-events: all !important;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
+    </style>
+</body>
+</html>
